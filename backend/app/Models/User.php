@@ -46,4 +46,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function updateProfilePhoto($photo)
+    {
+        $this->profile_photo_path = $photo->store('profile-photos', 'public');
+        $this->save();
+    }
 }
